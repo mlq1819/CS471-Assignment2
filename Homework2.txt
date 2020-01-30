@@ -4,11 +4,12 @@ Problem 1
 <expr> := <term> | <term> + <expr>
 <term> := <factor> | <factor> * <term>
 <factor> := ( <expr> ) | <number>
-<number> := <digit> | <digit><digit>
+<number> := <digit> | <digit><number>
 <digit> := 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 (2) Is the grammar left or right recursive? How does that affect the associativity of plus and mult?
 The grammer is right recursive, as can be seen in <expr> and <term>. As such, both plus and mult are right associative, as 2 + 3 + 4 would become <term> + (<term> + (<term>)) and 2 * 3 * 4 would become <factor> * (<factor> * (<factor>))
+
 
 
 Problem 2: Add "^" and "-" operators to the language with "^" having highest precedence (besides parentheses), and "-" having higher precedence than "+" but less than "*"
@@ -18,7 +19,85 @@ Problem 2: Add "^" and "-" operators to the language with "^" having highest pre
 <term> := <expo> | <expo> * <term>
 <expo> := <factor> | <factor> ^ <expo>
 <factor> := ( <expr> ) | <number>
-<number> := <digit> | <digit><digit>
+<number> := <digit> | <digit><number>
 <digit> := 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
-Problem 3: 
+
+
+Problem 3: Write left derivations for the following expressions according to the Problem 2 grammer; show only one step at a time
+(1) 1 + 2 - 2
+1.	<prog>
+2.	<expr>
+3.	<subt> + <expr>
+4.	<term> + <expr>
+5.	<expo> + <expr>
+6.	<factor> + <expr>
+7.	<number> + <expr>
+8.	<digit> + <expr>
+9.	1 + <expr>
+10.	1 + <subt>
+11.	1 + <term> - <subt>
+12.	1 + <expo> - <subt>
+13.	1 + <factor> - <subt>
+14.	1 + <number> - <subt>
+15.	1 + <digit> - <subt>
+16.	1 + 2 - <subt>
+17.	1 + 2 - <term>
+18.	1 + 2 - <expo>
+19.	1 + 2 - <factor>
+20.	1 + 2 - <number>
+21.	1 + 2 - <digit>
+22.	1 + 2 - 2
+
+(2) 1 + 2 - 3 * 5
+1.	<prog>
+2.	<expr>
+3.	<subt> + <expr>
+4.	<term> + <expr>
+5.	<expo> + <expr>
+6.	<factor> + <expr>
+7.	<number> + <expr>
+8.	<digit> + <expr>
+9.	1 + <expr>
+10.	1 + <subt>
+11.	1 + <term> - <subt>
+12.	1 + <expo> - <subt>
+13.	1 + <factor> - <subt>
+14.	1 + <number> - <subt>
+15.	1 + <digit> - <subt>
+16.	1 + 2 - <subt>
+17.	1 + 2 - <term>
+18.	1 + 2 - <expo> * <term>
+19.	1 + 2 - <factor> * <term>
+20.	1 + 2 - <number> * <term>
+21.	1 + 2 - <digit> * <term>
+22.	1 + 2 - 3 * <term>
+23.	1 + 2 - 3 * <expo>
+24.	1 + 2 - 3 * <factor>
+25.	1 + 2 - 3 * <number>
+26	1 + 2 - 3 * <digit>
+27	1 + 2 - 3 * 5
+
+(3) 2 ^ 5 ^ 2
+1.	<prog>
+2.	<expr>
+3.	<subt>
+4.	<term>
+5.	<expo>
+6. 	<factor> ^ <expo>
+7. 	<number> ^ <expo>
+8.	<digit> ^ <expo>
+9.	2 ^ <expo>
+10.	2 ^ <factor> ^ <expo>
+11.	2 ^ <number> ^ <expo>
+12.	2 ^ <number> ^ <expo>
+13.	2 ^ <digit> ^ <expo>
+14.	2 ^ 5 ^ <expo>
+15.	2 ^ 5 ^ <factor>
+16.	2 ^ 5 ^ <number>
+17.	2 ^ 5 ^ <digit>
+18.	2 ^ 5 ^ 2
+
+
+
+Problem 4:
