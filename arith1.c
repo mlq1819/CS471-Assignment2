@@ -68,6 +68,7 @@ int subt(void){
     match('-');
     result -= subt();
   }
+  return result;
 }
 
 int term(void) { 
@@ -93,6 +94,7 @@ int expo(void) {
     match('^');
     result = powI(factor(), expo());
   }
+  return result;
 }
 
 int factor(void) { 
