@@ -1,4 +1,4 @@
-Problem 1
+Problem 1: Examine arith1.c
 (1) Using the code, give the complete grammar in BNF form
 <prog> := <expr>
 <expr> := <term> | <term> + <expr>
@@ -102,3 +102,20 @@ Problem 3: Write left derivations for the following expressions according to the
 
 Problem 4: Modfy arith1.c adding the new operators from problems 2 and 3.
 arith1.c now contains the modified code
+
+
+
+Problem 5: Examine arith2.c
+(1) Using the code, give the complete grammar in BNF or EBNF form
+<prog> := <expr>
+<expr> := <term> | <term> + <term>
+<term> := <factor> | <factor> * <factor>
+<factor> := ( <expr> ) | <number>
+<number> := <digit> | <digit><number>
+<digit> := 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+(2) Is the grammar left or right recursive? How does that affect the associativity of plus and mult?
+The grammer is ambiguous, with the exception of <number>; it can either be right associative or left associative depending on whether it is right-derived or left-derived.
+
+
+
