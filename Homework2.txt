@@ -3,9 +3,22 @@ Problem 1
 <prog> := <expr>
 <expr> := <term> | <term> + <expr>
 <term> := <factor> | <factor> * <term>
-<factor> := (<expr>) | <number>
+<factor> := ( <expr> ) | <number>
 <number> := <digit> | <digit><digit>
 <digit> := 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 (2) Is the grammar left or right recursive? How does that affect the associativity of plus and mult?
 The grammer is right recursive, as can be seen in <expr> and <term>. As such, both plus and mult are right associative, as 2 + 3 + 4 would become <term> + (<term> + (<term>)) and 2 * 3 * 4 would become <factor> * (<factor> * (<factor>))
+
+
+Problem 2: Add "^" and "-" operators to the language with "^" having highest precedence (besides parentheses), and "-" having higher precedence than "+" but less than "*"
+<prog> := <expr>
+<expr> := <subt> | <subt> + <expr>
+<subt> := <term> | <term> - <subt>
+<term> := <expo> | <expo> * <term>
+<expo> := <factor> | <factor> ^ <expo>
+<factor> := ( <expr> ) | <number>
+<number> := <digit> | <digit><digit>
+<digit> := 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+Problem 3: 
