@@ -184,8 +184,16 @@ Problem 7: Write left derivations for the following expressions according to the
 3.	<subt>
 4.	<term>
 5.	<expo>
-6.	<factor> ^ <factor>
-7.	<number> ^ <factor>
-8.	<digit> ^ <factor>
-9.	2  ^ <factor>
-10.	
+6.	<factor> ^ <factor> ^ <factor>
+7.	<number> ^ <factor> ^ <factor>
+8.	<digit> ^ <factor> ^ <factor>
+9.	2 ^ <factor> ^ <factor>
+10.	2 ^ <number> ^ <factor>
+11.	2 ^ <digit> ^ <factor>
+12.	2 ^ 5 ^ <factor>
+13.	2 ^ 5 ^ <number>
+14.	2 ^ 5 ^ <digit>
+15.	2 ^ 5 ^ 2
+
+
+
