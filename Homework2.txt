@@ -199,3 +199,20 @@ Problem 7: Write left derivations for the following expressions according to the
 
 Problem 8: Modfy arith1.c adding the new operators from problems 2 and 3.
 arith2.c now contains the modified code
+
+
+
+Problem 9: Both _Bool and bool are available in the ISO C standard published in 2011.  Briefly explain:
+(1) What are they used for?
+Both are data types effectively used for storing the values of true or false as a 1 or 0
+
+(2) Why do both exist?
+_Bool is part of the C99 standard; it is considered a keyword, and is intentionally different but functionally the same as bool so that previous implmentations of bool wouldn't conflict, causing existing code to break when it was introduced. bool exists because many programmers manually define it in their code, as well as true and false.
+
+(3) Is one better than the other? Why?
+Objectively, _Bool is better because it being defined will mean that true and false are also defined; however, most code defined bool and _Bool as identical, meaning they are usually functionally the same.
+
+
+
+
+
