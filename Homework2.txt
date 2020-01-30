@@ -108,10 +108,10 @@ arith1.c now contains the modified code
 Problem 5: Examine arith2.c
 (1) Using the code, give the complete grammar in BNF or EBNF form
 <prog> := <expr>
-<expr> := <term> | <term> + <term>
-<term> := <factor> | <factor> * <factor>
+<expr> := <term> {+ <term>}
+<term> := <factor> {* <factor>}
 <factor> := ( <expr> ) | <number>
-<number> := <digit> | <digit><number>
+<number> := <digit> {<digit>}
 <digit> := 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 (2) Is the grammar left or right recursive? How does that affect the associativity of plus and mult?
@@ -120,12 +120,72 @@ The grammer is ambiguous, with the exception of <number>; it can either be right
 
 Problem 6: Add "^" and "-" operators to the language with "^" having highest precedence (besides parentheses), and "-" having higher precedence than "+" but less than "*"
 <prog> := <expr>
-<expr> := <subt> | <subt> + <subt>
-<subt> := <term> | <term> - <term>
-<term> := <expo> | <expo> * <expo>
-<expo> := <factor> | <factor> ^ <factor>
+<expr> := <subt> {+ <subt>}
+<subt> := <term> {- <term>}
+<term> := <expo> {* <expo>}
+<expo> := <factor> {^ <factor>}
 <factor> := ( <expr> ) | <number>
-<number> := <digit> | <digit><number>
+<number> := <digit> {<digit>}
 <digit> := 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
 
 
+Problem 7: Write left derivations for the following expressions according to the Problem 2 grammer; show only one step at a time
+(1) 1 + 2 - 2
+1.	<prog>
+2.	<expr>
+3.	<subt> + <subt>
+4.	<term> + <subt>
+5.	<expo> + <subt>
+6.	<factor> + <subt>
+7.	<number> + <subt>
+8.	<digit> + <subt>
+9.	1 + <subt>
+10.	1 + <term> - <term>
+11.	1 + <expo> - <term>
+12.	1 + <factor> - <term>
+13.	1 + <number> - <term>
+14.	1 + <digit> - <term>
+15.	1 + 2 - <term>
+16.	1 + 2 - <expo>
+17.	1 + 2 - <factor>
+18.	1 + 2 - <number>
+19.	1 + 2 - <digit>
+20.	1 + 2 - 2
+
+(2) 1 + 2 - 3 * 5
+1.	<prog>
+2.	<expr>
+3.	<subt> + <subt>
+4.	<term> + <subt>
+5.	<expo> + <subt>
+6.	<factor> + <subt>
+7.	<number> + <subt>
+8.	<digit> + <subt>
+9.	1 + <subt>
+10.	1 + <term> - <term>
+11.	1 + <expo> - <term>
+12.	1 + <factor> - <term>
+13.	1 + <number> - <term>
+14.	1 + <digit> - <term>
+15.	1 + 2 - <term>
+16.	1 + 2 - <expo> * <expo>
+17.	1 + 2 - <factor> * <expo>
+18.	1 + 2 - <number> * <expo>
+19.	1 + 2 - <digit> * <expo>
+20.	1 + 2 - 3 * <expo>
+21. 	1 + 2 - 3 * <factor>
+22.	1 + 2 - 3 * <number>
+23.	1 + 2 - 3 * <digit>
+24.	1 + 2 - 3 * 5
+
+(3) 2 ^ 5 ^ 2
+1.	<prog>
+2.	<expr>
+3.	<subt>
+4.	<term>
+5.	<expo>
+6.	<factor> ^ <factor>
+7.	<number> ^ <factor>
+8.	<digit> ^ <factor>
+9.	2  ^ <factor>
+10.	
