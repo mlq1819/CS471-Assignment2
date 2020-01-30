@@ -92,7 +92,7 @@ int expo(void) {
   int result = factor();
   if (token == '^') {
     match('^');
-    result = powI(factor(), expo());
+    result = powI(result, expo());
   }
   return result;
 }

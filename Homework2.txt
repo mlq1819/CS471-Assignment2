@@ -101,4 +101,4 @@ Problem 3: Write left derivations for the following expressions according to the
 
 
 Problem 4: Modfy arith1.c adding the new operators from problems 2 and 3.
-
+arith1.c now contains the modified code
