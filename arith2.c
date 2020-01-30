@@ -87,7 +87,7 @@ int powI(int base, int exp) {
 }
 
 int expo(void) {
-  int result = factor());
+  int result = factor();
   while (token == '^'){
     match('^');
     result = powI(result, factor());
