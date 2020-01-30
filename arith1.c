@@ -12,7 +12,9 @@ char token; /* holds the current input character for the parse */
 /* declarations to allow arbitrary recursion */
 void command(void);
 int expr(void);
+int subt(void);
 int term(void);
+int expo(void);
 int factor(void);
 int number(void);
 int digit(void);
