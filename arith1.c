@@ -52,7 +52,7 @@ void command(void) {
 }
 
 int expr(void) { 
-  int result = term();
+  int result = subt();
   if (token == '+') {
     match('+');
     result += expr();
@@ -60,13 +60,37 @@ int expr(void) {
   return result;
 }
 
+int subt(void){
+  int result = term();
+  if (token == '-') {
+    match('-');
+    result -= subt();
+  }
+}
+
 int term(void) { 
-  int result = factor();
+  int result = expo();
   if (token == '*') {
     match('*');
     result *= term();
   } 
   return result;
+}
+
+int powI(int base, int exp) {
+  if (0==exp) {
+    return 1;
+  } else {
+    return base * powI(base, exp -1);
+  } 
+}
+
+int expo(void) {
+  int result = factor();
+  if (token == '^') {
+    match('^');
+    result = powI(factor(), expo());
+  }
 }
 
 int factor(void) { 
