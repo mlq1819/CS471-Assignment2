@@ -213,6 +213,7 @@ _Bool is part of the C99 standard; it is considered a keyword, and is intentiona
 Objectively, _Bool is better because it being defined will mean that true and false are also defined; however, most code defined bool and _Bool as identical, meaning they are usually functionally the same.
 
 
-
+Problem 10: What are pragmas? Why are they processed by the scanner?  Briefly, if you are a language designer what are the trade offs of providing pragmas in a language?
+Pragmas are comments written into the source code of a program that help improve compilation, though some alter how the compilation works entirely. The scanner processes them so they can be used by the compiler, which runs after the scanner. Including pragmas in a language makes it more complicated, and can cause problems for programmers who don't know how to use them properly.
 
 
