@@ -246,3 +246,10 @@ d)  w + x  *  y  +  z
 wxy*+z+
 
 
+
+Problem 13: Ackerman Problems
+a) What is the value of ack(1,0) ?
+ack(1,0) = ack(0,1) = 1+1 = 2
+
+b) What is the value of ack(0,6) ?
+ack(0,6) = 7
