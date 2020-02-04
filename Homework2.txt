@@ -217,3 +217,18 @@ Problem 10: What are pragmas? Why are they processed by the scanner?  Briefly, i
 Pragmas are comments written into the source code of a program that help improve compilation, though some alter how the compilation works entirely. The scanner processes them so they can be used by the compiler, which runs after the scanner. Including pragmas in a language makes it more complicated, and can cause problems for programmers who don't know how to use them properly.
 
 
+Problem 11: Rewrite the expressions a-d below in prefix notation
+a) w ^ x ^ y  -  z
+-^^wxy
+
+b)  w - x  ^  y  ^  z
+-w^^xyz
+
+c) w  *  x  *  y  - z
+-**wxy
+
+d)  w + x  *  y  +  z
+++w*xyz
+
+
+
