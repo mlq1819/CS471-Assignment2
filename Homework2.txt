@@ -232,3 +232,17 @@ d)  w + x  *  y  +  z
 
 
 
+Problem 12: Rewrite the expressions a-d below in postfix notation
+a) w ^ x ^ y  -  z
+wx^y^z-
+
+b)  w - x  ^  y  ^  z
+wxy^z^-
+
+c) w  *  x  *  y  - z
+wx*y*z-
+
+d)  w + x  *  y  +  z
+wxy*+z+
+
+
